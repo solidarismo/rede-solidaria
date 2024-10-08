@@ -58,12 +58,12 @@ def add_marker_with_text_and_score(map_obj, location, text, url, score):
 
 # Cria o mapa centrado em uma localização específica
 def show_map():
-    map_center = [-30.7749, -51.4194]
-    m = folium.Map(location=map_center, zoom_start=10, min_zoom=4, max_zoom=16)
+    map_center = [-30.01, -51.16394]
+    m = folium.Map(location=map_center, zoom_start=10, min_zoom=3, max_zoom=16)
 
     points = [
-        {"location": [-30.7749, -51.4194], "text": "Solidarismo_Irmandade_camino_da_ascensão", "url": "https://exemplo.com/ponto1", "score": 9.8},
-        {"location": [-30.7849, -50.4094], "text": "Horta comunitaria", "url": "https://exemplo.com/ponto2", "score": 7.2}
+        {"location": [-30.01, -51.16394], "text": "Solidarismo_Irmandade_camino_da_ascensão", "url": "https://exemplo.com/ponto1", "score": 9.8},
+        {"location": [-30.11, -51.26394], "text": "Horta comunitaria", "url": "https://exemplo.com/ponto2", "score": 7.2}
     ]
 
     # Adiciona os pontos ao mapa com texto acima e redirecionamento
@@ -95,7 +95,7 @@ def create_marker(lat, lon):
             m = folium.Map(location=map_center, zoom_start=10, min_zoom=4, max_zoom=16)
             add_marker_with_text_and_score(m, map_center, title, "#", score)
             st.success("Marcação cadastrada com sucesso!")
-            st_folium(m, width=700, height=500)
+            st_folium(m, width=0, height=0)
 
 
 show_map()
