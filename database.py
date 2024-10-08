@@ -2,21 +2,13 @@ from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 from dotenv import load_dotenv
-import os
+import streamlit as st
 
-load_dotenv()  # Carregar variáveis de ambiente do arquivo .env
+from init_cidade_solidaria import load_environment
 
 # Determinar o ambiente
-ENVIRONMENT = os.getenv("ENVIRONMENT")
-
-if ENVIRONMENT == "development":
-    DATABASE_URL = os.getenv("DATABASE_URL_DOCKER")
-elif ENVIRONMENT == "local_database":
-     DATABASE_URL = os.getenv("DATABASE_URL_LOCAL")
-elif ENVIRONMENT == "production":
-    DATABASE_URL = os.getenv("DATABASE_URL_PRODUCTION")
-else:
-    raise Exception("ENVIRONMENT variável não definida ou inválida!")
+ENVIRONMENT = load_environment()
+DATABASE_URL = st.secrets["database"]["database_url"]
 
 if ENVIRONMENT == "production":
     print(f"Database selecionada: production! ")

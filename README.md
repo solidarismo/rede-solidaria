@@ -60,18 +60,11 @@ Crie um diretório `.streamlit` e adicione o arquivo `secrets.toml` com o seguin
 ENVIRONMENT = "development"
 api_key = "your_opencage_api_key"
 
-# Credenciais do banco de dados
-db_username = "your_db_username"
-db_password = "your_db_password"
-
 # URLs de banco de dados para diferentes ambientes
 [database]
-url_local = "sqlite:///data.db"
-url_docker = "postgresql://postgres:postgres@localhost/postgres"
-url_production = "postgresql://your_db_username:your_db_password@production_host/your_database"
-```
+database_url = "postgresql://postgres:postgres@localhost/postgres"
 
-Substitua `your_db_username`, `your_db_password`, `your_opencage_api_key`, e as URLs do banco de dados pelos valores apropriados.
+```
 
 ### 4. Instalar Dependências
 
